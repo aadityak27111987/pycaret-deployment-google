@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Predict Insurance Bill</title>
+	<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}">
+	<!--<link type="text/css" rel="stylesheet" href="../static/style.css">-->
+  <div >
+	  <img 
+	  src= "{{ url_for('static', filename='./Citiustech_logo.png') }}"
+	  width=20%  
+	  style="border:5px solid black; margin-left: -1080px"/>
+  </div>
+  
+ <!-- 
+
+  "../static/Citiustech_logo.png"
+ -->
+</head>
+
+<body >
+
+ 
+
+	<h1 class="login"> ML on Kubernetes Cluster</h1>
+	<h2>Use Case: Predict Hospitalistion Charges</h2>
+	<p>
+		<h4 style="padding-left: 30%; padding-right: 30%; text-align: justify;">
+		An insurance company (payer) wants to improve its cash flow forecasting by better predicting patient charges using demographic and basic patient health risk metrics at the time of hospitalization.
+		</h4>
+	</p>
+
+     <!-- Form to enter new data for predictions  -->
+    <form action="{{ url_for('predict')}}"method="POST">
+		<input type="number" name="age" placeholder="Age" maxlength=2   min=1 max=100 required="required" />
+		<br>
+		<br>
+    	<!--<input type="text" name="sex" placeholder="Sex" required="required" />-->
+		<select name="sex" id="sex">
+			<option value="male">Male</option>
+			<option value="female">Female</option>
+		</select>
+		<br>
+		<br>
+		<input type="number" name="bmi" placeholder="BMI" step="0.01" min=17 max=32 required="required" /> <br><br>
+		
+		<!--<input type="number" name="children" placeholder="Children" required="required" />-->
+		Children:
+		<select name="children" id="children">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		
+		<br><br>
+        <!--<input type="text" name="smoker" placeholder="Smoker" required="required" />-->
+		Smoker:
+		<input type="radio" id="yes" name="smoker" value="yes">
+		<label for="yes">Yes</label>
+		<input type="radio" id="no" name="smoker" value="no">
+		<label for="no">No</label>
+
+		<br><br>
+        <!--<input type="text" name="region" placeholder="Region" required="required" />-->
+		Region: 
+		<input type="radio" id="northeast" name="region" value="northeast">
+		<label for="northeast">North East</label>		
+		<input type="radio" id="northwest" name="region" value="northwest">
+		<label for="northwest">North West</label>
+		<input type="radio" id="southeast" name="region" value="southeast">
+		<label for="southeast">South East</label>
+		<input type="radio" id="southwest" name="region" value="southwest">
+		<label for="southwest">South West</label>
+		<br><br>
+
+        <button 
+		type="submit" 
+		class="btn btn-primary btn-large"
+		style="width: 20%;"
+		>Predict
+		</button>
+    </form>
+   <br>
+   <br>
+   <div><h3><label style="border: 3px solid black">     {{pred}}
+   </label>
+   </h3>
+   </div>
+   <br>
+   <br>
+
+</div>
+</body>
+</html>
