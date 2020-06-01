@@ -7,18 +7,22 @@
 	<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}">
-	<!--<link type="text/css" rel="stylesheet" href="../static/style.css">-->
-  <div >
+	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}"> 
+	 <link href="{{ url_for('static', filename='./favicon.png') }}" rel="icon">
+	<!-- <link type="text/css" rel="stylesheet" href="../static/style.css">-->
+	<div>
 	  <img 
 	  src= "{{ url_for('static', filename='./Citiustech_logo.png') }}"
-	  width=20%  
-	  style="border:5px solid black; margin-left: -1080px"/>
-  </div>
+	  width=15%  
+	  style="border:5px solid black; margin-left: -1150px"/> 
+	   <h2 class="login" style="margin-top: -40px"> ML on Kubernetes Cluster</h2>
+	</div>
+
   
  <!-- 
-
   "../static/Citiustech_logo.png"
+
+ 
  -->
 </head>
 
@@ -26,27 +30,28 @@
 
  
 
-	<h1 class="login"> ML on Kubernetes Cluster</h1>
-	<h2>Use Case: Predict Hospitalistion Charges</h2>
+	
+	<h3>Use Case: Predict Hospitalistion Charges</h3>
 	<p>
-		<h4 style="padding-left: 30%; padding-right: 30%; text-align: justify;">
+		<h5 style="padding-left: 18%; padding-right: 18%; text-align: center;">
 		An insurance company (payer) wants to improve its cash flow forecasting by better predicting patient charges using demographic and basic patient health risk metrics at the time of hospitalization.
-		</h4>
+		</h5>
 	</p>
 
      <!-- Form to enter new data for predictions  -->
     <form action="{{ url_for('predict')}}"method="POST">
-		<input type="number" name="age" placeholder="Age" maxlength=2   min=1 max=100 required="required" />
+		<input type="number" name="age" placeholder="Age" maxlength=2   min=1 max=100 required="required" style="width: 10%;" />
 		<br>
 		<br>
     	<!--<input type="text" name="sex" placeholder="Sex" required="required" />-->
-		<select name="sex" id="sex">
+		<select name="sex" id="sex" style="width: 10%;">
 			<option value="male">Male</option>
 			<option value="female">Female</option>
 		</select>
 		<br>
 		<br>
-		<input type="number" name="bmi" placeholder="BMI" step="0.01" min=17 max=32 required="required" /> <br><br>
+
+		<input type="number" name="bmi" placeholder="BMI" step="0.01" min=17 max=32 required="required"  style="width: 10%;"/> <br><br>
 		
 		<!--<input type="number" name="children" placeholder="Children" required="required" />-->
 		Children:
@@ -78,8 +83,8 @@
 		<label for="southeast">South East</label>
 		<input type="radio" id="southwest" name="region" value="southwest">
 		<label for="southwest">South West</label>
-		<br><br>
-
+		<br>
+		<br>
         <button 
 		type="submit" 
 		class="btn btn-primary btn-large"
@@ -87,14 +92,11 @@
 		>Predict
 		</button>
     </form>
-   <br>
-   <br>
-   <div><h3><label style="border: 3px solid black">     {{pred}}
+   <h4><label style="border: 3px solid black">     {{pred}}
    </label>
-   </h3>
-   </div>
-   <br>
-   <br>
+   </h4>
+  
+
 
 </div>
 </body>
