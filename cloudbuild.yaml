@@ -31,7 +31,7 @@ substitutions:
     #Repository Specific configuration. DevOps can change this settings
     _DEPLOYMENTNAME: insurance-appp
     _CONTAINERNAME: insurance-appp    
-	_GIT_ACCOUNT: aadityak27111987
+    _GIT_ACCOUNT: aadityak27111987
     _REPO_NAME: pycaret-deployment-google2
     
     # Developers ONLY change
