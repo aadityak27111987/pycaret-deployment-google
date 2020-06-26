@@ -35,7 +35,7 @@ substitutions:
     _REPO_NAME: pycaret-deployment-google2
     
     # Developers ONLY change
-    _VERSION: v1.6
+    _VERSION: v1.7
     
 options:
     substitution_option: 'ALLOW_LOOSE'
